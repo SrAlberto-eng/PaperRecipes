@@ -1,5 +1,6 @@
 package com.paperrecipes.app.ui.components
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
@@ -48,8 +49,7 @@ fun PasswordTextField(
             )
         },
         modifier = modifier
-            .widthIn(max = 488.dp)
-            .padding(vertical = 4.dp),
+            .fillMaxWidth(),
         visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         trailingIcon = {
@@ -96,8 +96,7 @@ fun AppTextField(
         },
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         modifier = modifier
-            .widthIn(max = 488.dp)
-            .padding(vertical = 4.dp),
+            .fillMaxWidth(),
         singleLine = singleLine,
         placeholder = {
             if (placeholder.isNotEmpty()) {

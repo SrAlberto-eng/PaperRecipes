@@ -3,6 +3,7 @@ package com.paperrecipes.app.ui.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -32,7 +33,7 @@ fun PrimaryButton(
     Button(
         onClick = onClick,
         modifier = modifier
-            .widthIn(max = 320.dp)
+            .fillMaxWidth()
             .heightIn(min = 52.dp),
         enabled = enabled && !loading,
         shape = MaterialTheme.shapes.small,

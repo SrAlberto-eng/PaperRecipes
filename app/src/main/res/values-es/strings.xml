@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // App name
+    <string name="app_name" translatable="false">Paper Recipes</string>
+
+    // Auth view
+    <string name="welcome_back">Inicia sesión para entrar a tu cocina</string>
+    <string name="email">Correo electrónico</string>
+    <string name="email_placeholder">tu@ejemplo.com</string>
+    <string name="password">Contraseña</string>
+    <string name="password_placeholder">Contraseña</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="username_placeholder">Ingresa tu nombre de usuario</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="new_here">¿Nuevo aquí? Crea una cuenta</string>
+    <string name="already_have_account">¿Ya tienes una cuenta? Inicia sesión</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+
+    // Recipe list view
+    <string name="recipes">Recetas</string>
+    <string name="search">Buscar</string>
+    <string name="find_recipe">Encuentra una receta</string>
+    <string name="new_recipe_button">Nueva receta</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="serv">Porción</string>
+
+    // Recipe edit view
+    <string name="add_a_photo">Agrega una foto</string>
+    <string name="gallery">Galería</string>
+    <string name="camera">Cámara</string>
+    <string name="exists">Editar receta</string>
+    <string name="not_exists">Nueva receta</string>
+
+    // Input text errors
+    <string name="email_blank">El email es requerido</string>
+    <string name="email_invalid">Ingresa un email válido</string>
+    <string name="password_length">La contraseña debe contener al menos 6 caracteres</string>
+    <string name="username_blank">El nombre de usuario es requerido</string>
+    <string name="password_match">Ambas contraseñas no coinciden</string>
+</resources>

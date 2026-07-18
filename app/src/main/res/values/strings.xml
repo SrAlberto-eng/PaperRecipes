@@ -1,0 +1,42 @@
+<resources>
+
+    // App name
+    <string name="app_name" translatable="false">Paper Recipes</string>
+
+    // Auth view
+    <string name="welcome_back">Sign in to enter your kitchen</string>"
+    <string name="email">Email</string>
+    <string name="email_placeholder">you@example.com</string>
+    <string name="password">Password</string>
+    <string name="password_placeholder">Enter your password</string>
+    <string name="username">Username</string>
+    <string name="username_placeholder">Enter your username</string>
+    <string name="sign_in">Sign in</string>
+    <string name="new_here">New here? Create an account</string>
+    <string name="already_have_account">Already have account? sign in</string>
+    <string name="create_account">Create account</string>
+    <string name="confirm_password">Confirm password</string>
+
+    // Recipe list view (Home)
+    <string name="recipes">Recipes</string>
+    <string name="search">Search</string>
+    <string name="find_recipe">Find a recipe</string>
+    <string name="new_recipe_button">New recipe</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="serv">Serving</string>
+
+
+    // Recipe edit view
+    <string name="add_a_photo">Add a photo</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="exists">Edit recipe</string>
+    <string name="not_exists">New recipe</string>
+
+    // Login input texts errors
+    <string name="email_blank">Email is required</string>
+    <string name="email_invalid">Enter a valid email</string>
+    <string name="password_length">Password must be at least 6 characters</string>
+    <string name="username_blank">Username is required</string>
+    <string name="password_match">Passwords do not match</string>
+</resources>

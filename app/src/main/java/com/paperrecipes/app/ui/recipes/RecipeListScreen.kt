@@ -49,6 +49,7 @@ import com.paperrecipes.app.R
 import com.paperrecipes.app.data.model.Recipe
 import com.paperrecipes.app.ui.components.AppTextField
 import com.paperrecipes.app.ui.theme.PaperRecipesTheme
+import java.util.UUID
 
 
 @Preview(showBackground = true)
@@ -139,12 +140,7 @@ fun RecipeListScreen(
 
             val recipes: List<Recipe> =
                 listOf(
-                    Recipe(name = "Guacamole"),
-                    Recipe(name = "Guacamole"),
-                    Recipe(name = "Guacamole"),
-                    Recipe(name = "Guacamole"),
-                    Recipe(name = "Guacamole"),
-                    Recipe(name = "Guacamole"),
+                    Recipe(id = UUID.randomUUID().toString() ,name = "Guacamole"),
                 )
 
             val state: Boolean = recipes.isNotEmpty()

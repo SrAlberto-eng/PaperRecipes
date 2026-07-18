@@ -25,6 +25,17 @@
     <string name="new_recipe_button">Nueva receta</string>
     <string name="ingredients">Ingredientes</string>
     <string name="serv">Porción</string>
+    <string name="steps">Pasos</string>
+    <string name="INGREDIENT">INGREDIENTE</string>
+    <string name="DESCRIPTION">DESCRIPCIÓN</string>
+    <string name="QUANTITY">CANTIDAD</string>
+    <string name="RECIPE_NAME">NOMBRE DE LA RECETA</string>
+    <string name="SERVINGS">PORCIÓN</string>
+    <string name="UNIT">UNIDAD</string>
+    <string name="add_ingredient">Agregar ingrediente</string>
+    <string name="add_step">Agregar paso</string>
+    <string name="remove_ingredient">Remover ingrediente</string>
+    <string name="remove_step">Remover paso</string>
 
     // Recipe edit view
     <string name="add_a_photo">Agrega una foto</string>

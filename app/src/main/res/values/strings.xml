@@ -32,6 +32,19 @@
     <string name="camera">Camera</string>
     <string name="exists">Edit recipe</string>
     <string name="not_exists">New recipe</string>
+    <string name="steps">Steps</string>
+    <string name="INGREDIENT">INGREDIENT</string>
+    <string name="DESCRIPTION">DESCRIPTION</string>
+    <string name="QUANTITY">QUANTITY</string>
+    <string name="RECIPE_NAME">RECIPE NAME</string>
+    <string name="SERVINGS">SERVING</string>
+    <string name="UNIT">UNIT</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="add_step">Add step</string>
+    <string name="remove_ingredient">Remove ingredient</string>
+    <string name="remove_step">Remove step</string>
+
+
 
     // Login input texts errors
     <string name="email_blank">Email is required</string>

@@ -1,7 +1,7 @@
 package com.paperrecipes.app.data.model
 
 data class Recipe(
-    val id: String = "",
+    val id: String,
     val ownerId: String = "",
     val name: String = "",
     val description: String = "",
@@ -14,14 +14,14 @@ data class Recipe(
 )
 
 data class Ingredient(
-    val id: Int,
-    val name: String,
-    val quantity: Int? = 0,
+    val id: String,
+    val name: String = "",
+    val quantity: Double? = 0.0,
     val unit: String = "unit"
 )
 
 data class Step(
-    val id: Int,
+    val id: String,
     val description: String? = ""
 )
 

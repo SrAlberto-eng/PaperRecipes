@@ -1,7 +1,6 @@
 package com.paperrecipes.app.ui.components
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.material.icons.Icons
@@ -22,7 +21,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.dp
 
 /**
  * A wrapper around [OutlinedSecureTextField] for password input using the new [TextFieldState] API.
@@ -48,8 +46,7 @@ fun PasswordTextField(
             )
         },
         modifier = modifier
-            .widthIn(max = 488.dp)
-            .padding(vertical = 4.dp),
+            .fillMaxWidth(),
         visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         trailingIcon = {
@@ -83,7 +80,7 @@ fun AppTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     singleLine: Boolean = true,
     placeholder: String = "",
-    isError: Boolean = false
+    isError: Boolean = false,
 ) {
     OutlinedTextField(
         value = value,
@@ -96,8 +93,7 @@ fun AppTextField(
         },
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         modifier = modifier
-            .widthIn(max = 488.dp)
-            .padding(vertical = 4.dp),
+            .fillMaxWidth(),
         singleLine = singleLine,
         placeholder = {
             if (placeholder.isNotEmpty()) {
@@ -108,7 +104,7 @@ fun AppTextField(
             }
         },
         shape = MaterialTheme.shapes.small,
-        isError =isError
+        isError =isError,
     )
 }
 

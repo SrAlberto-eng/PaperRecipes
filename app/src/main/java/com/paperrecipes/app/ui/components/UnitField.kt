@@ -20,7 +20,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.PopupProperties
+import com.paperrecipes.app.R
 import com.paperrecipes.app.data.model.IngredientUnit
 
 @Composable
@@ -41,7 +43,7 @@ fun UnitField(
             value = value,
             onValueChange = { if (customMode) onValueChange(it) },
             readOnly = !customMode,
-            label = { Text("UNIT", style = MaterialTheme.typography.labelMedium) },
+            label = { Text(stringResource(R.string.UNIT), style = MaterialTheme.typography.labelMedium) },
             singleLine = true,
             trailingIcon = {
                 Icon(

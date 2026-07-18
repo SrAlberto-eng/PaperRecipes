@@ -61,7 +61,7 @@ private val AppShapes = Shapes(
 @Composable
 fun PaperRecipesTheme(
     //darkTheme: Boolean = isSystemInDarkTheme(),
-    darkTheme: Boolean = false,
+    darkTheme: Boolean = true,
     content: @Composable () -> Unit,
 ) {
     val colorScheme = if (darkTheme) DarkColors else LightColors

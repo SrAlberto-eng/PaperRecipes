@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -29,6 +30,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -48,7 +50,9 @@ import androidx.compose.ui.unit.dp
 import com.paperrecipes.app.R
 import com.paperrecipes.app.data.model.Ingredient
 import com.paperrecipes.app.data.model.Recipe
+import com.paperrecipes.app.data.model.Step
 import com.paperrecipes.app.ui.components.AppTextField
+import com.paperrecipes.app.ui.components.PrimaryButton
 import com.paperrecipes.app.ui.components.SecondaryButton
 import com.paperrecipes.app.ui.components.UnitField
 import com.paperrecipes.app.ui.theme.PaperRecipesTheme
@@ -65,8 +69,9 @@ fun RecipeEditorPreview(){
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecipeEditorScreen(
+    // viewModel: RecipeViewModel,
     recipeId: String?,
-    onSaveRecipe: () -> Unit,
+    onSaveRecipe: (String) -> Unit,
     onBack: () -> Unit
 ){
     val scrollState: ScrollState = rememberScrollState()
@@ -117,8 +122,11 @@ fun RecipeEditorScreen(
             var recipename by remember { mutableStateOf("") }
 
             val ingredients = remember { mutableStateListOf(
-                Ingredient(UUID.randomUUID().toString()),
-                )
+                Ingredient(UUID.randomUUID().toString()))
+            }
+
+            val steps = remember { mutableStateListOf(
+                Step(UUID.randomUUID().toString()))
             }
 
             AppTextField(
@@ -127,6 +135,8 @@ fun RecipeEditorScreen(
                 label = stringResource(R.string.RECIPE_NAME),
                 modifier = Modifier.fillMaxWidth()
             )
+
+            Spacer(Modifier.height(10.dp))
 
             // Hardcoded variable, remove when view model will be implemented
             var recipeDescription by remember { mutableStateOf("") }
@@ -137,6 +147,8 @@ fun RecipeEditorScreen(
                 label = stringResource(R.string.DESCRIPTION),
                 modifier = Modifier.fillMaxWidth()
             )
+
+            Spacer(Modifier.height(10.dp))
 
             var serving by remember { mutableStateOf("") }
 
@@ -181,7 +193,6 @@ fun RecipeEditorScreen(
             )
 
 
-
             // Steps section
             Spacer(modifier = Modifier.height(16.dp))
             Text(
@@ -191,7 +202,41 @@ fun RecipeEditorScreen(
                 modifier = Modifier.padding(bottom = 10.dp)
             )
 
+            steps.forEach { step ->
+                key(step.id){
+                    val index = steps.indexOf(step)
+                    StepRow(
+                        number = index + 1,
+                        step = step,
+                        onChange = { updated ->
+                            if (index != -1) steps[index] = updated
+                        },
+                        onRemove = if (steps.size > 1) {
+                            { steps.remove(step) }
+                        } else null
+                    )
+                }
+                Spacer(Modifier.height(10.dp))
+            }
 
+
+            SecondaryButton(
+                text = stringResource(R.string.add_step),
+                onClick = {
+                    steps.add(Step(UUID.randomUUID().toString()))
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(Modifier.height(28.dp))
+            PrimaryButton(
+                text = "Save recipe",
+                enabled = recipe.name.isNotBlank(),
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onSaveRecipe(recipe.id) },
+            )
+
+            Spacer(Modifier.height(32.dp))
         }
     }
 }
@@ -224,7 +269,6 @@ fun PhotoPicker(photoUrl: String?) {
                     )
 
                     Spacer( modifier = Modifier.height(2.dp) )
-
                     Text (
                         text = stringResource(R.string.add_a_photo),
                         style = MaterialTheme.typography.labelSmall,
@@ -235,7 +279,6 @@ fun PhotoPicker(photoUrl: String?) {
         }
 
         Spacer( modifier = Modifier.height(10.dp) )
-
         Row ( horizontalArrangement = Arrangement.spacedBy(10.dp) ) {
             SecondaryButton(
                 text = stringResource(R.string.gallery),
@@ -251,6 +294,7 @@ fun PhotoPicker(photoUrl: String?) {
                 modifier = Modifier.weight(1f)
             )
         }
+        Spacer( modifier = Modifier.height(16.dp))
     }
 }
 
@@ -321,4 +365,51 @@ fun IngredientRow(
 private fun trimNumber(value: Double): String {
     if( value == value.toLong().toDouble()) return value.toLong().toString()
     return value.toString()
+}
+
+
+/**
+ * Composable UI element for introduce steps into recipe form
+ */
+@Composable
+fun StepRow(
+    number: Int,
+    step: Step,
+    onChange: (Step) -> Unit,
+    onRemove: (() -> Unit)?,
+) {
+    Row( verticalAlignment = Alignment.CenterVertically ) {
+        Surface(
+            shape = MaterialTheme.shapes.small,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.size(32.dp)
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Text(
+                    "$number",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onPrimary,
+                )
+            }
+        }
+
+        Spacer( Modifier.width(10.dp))
+        Box(Modifier.weight(1f)) {
+            AppTextField(
+                value = step.description,
+                onValueChange = { onChange(step.copy(description = it)) },
+                label = "STEP ${number}"
+            )
+        }
+
+        if (onRemove != null) {
+            IconButton({ onRemove() }) {
+                Icon(
+                    imageVector = Icons.Filled.Close,
+                    contentDescription = stringResource(R.string.remove_step),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
 }

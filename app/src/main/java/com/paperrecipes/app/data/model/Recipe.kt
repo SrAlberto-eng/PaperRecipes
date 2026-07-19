@@ -22,7 +22,7 @@ data class Ingredient(
 
 data class Step(
     val id: String,
-    val description: String? = ""
+    val description: String = ""
 )
 
 data class IngredientUnit(

@@ -57,10 +57,7 @@ fun PrimaryButton(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
             }
-            Text(
-                text = text,
-                style = MaterialTheme.typography.labelLarge
-            )
+            Text( text, style = MaterialTheme.typography.labelLarge )
         }
     }
 }
@@ -81,8 +78,8 @@ fun SecondaryButton(
         shape = MaterialTheme.shapes.medium,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
         colors = ButtonDefaults.outlinedButtonColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary,
+            containerColor = MaterialTheme.colorScheme.secondary,
+            contentColor = MaterialTheme.colorScheme.onSecondary,
         ),
     ) {
         if (leadingIcon != null) {

@@ -17,8 +17,8 @@ android {
         applicationId = "com.paperrecipes.app"
         minSdk = 34
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = libs.versions.project.version.code.get().toInt()
+        versionName = libs.versions.project.version.name.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

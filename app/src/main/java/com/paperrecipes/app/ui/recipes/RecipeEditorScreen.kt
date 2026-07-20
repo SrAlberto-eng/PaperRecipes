@@ -398,7 +398,7 @@ fun StepRow(
             AppTextField(
                 value = step.description,
                 onValueChange = { onChange(step.copy(description = it)) },
-                label = "STEP ${number}"
+                label = "STEP $number"
             )
         }
 
